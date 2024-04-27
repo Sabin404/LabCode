@@ -1,0 +1,9 @@
+ghdl -a filename.vhdl
+
+ghdl -a testbench_filename.vhdl
+
+ghdl -e testbench_filename 	(don't include extension of file)
+
+ghdl -r testbench_filename --vcd=newfilename.vcd
+
+gtkwave newfilename.vcd	
