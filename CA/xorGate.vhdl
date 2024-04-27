@@ -7,7 +7,7 @@ a,b : in std_logic;
 c: out std_logic
 );
 end xorGate;
-architecture behaviour of xoGate is 
+architecture behaviour of xorGate is 
 begin
 c<= a XOR b;
 end behaviour;
