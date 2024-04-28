@@ -1,5 +1,4 @@
-To create a VHDL file for implementing AND logic.
-Source Code: 
+
 library ieee;
 use ieee.std_logic_1164.all;
 entity andGate is
