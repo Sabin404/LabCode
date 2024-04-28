@@ -62,7 +62,7 @@ architecture test of fa_tb is
 			cin <= '1';
 			wait for 1 ns;
 
-			assert false report "Reached end of test";
+			assert false report "Congratss herooooo";
 			wait;
 		end process;
 end test;
