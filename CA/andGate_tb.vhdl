@@ -1,4 +1,4 @@
-To create a testbench for the AND logic VHDL file.
+
 library ieee;
 use ieee.std_logic_1164.all;
 entity andGate_tb is
