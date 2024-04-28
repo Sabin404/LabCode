@@ -42,7 +42,7 @@ architecture test of ha_tb is
 
 			
 
-			assert false report "Nirmal u are done";
+			assert false report "Congratulations bhaii ";
 			wait;
 		end process;
 end test;
