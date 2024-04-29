@@ -14,9 +14,9 @@ void drawCircle(int xc, int yc, int r) {
  putpixel(xc + y, yc - x, WHITE);
  putpixel(xc - y, yc - x, WHITE);
  if (p < 0)
- p += 2 * x + 3;
+ p += 2 * x + 1;
  else {
- p += 2 * (x - y) + 5;
+ p += 2 * (x - y) + 1;
  y--; }
  x++;}}
 int main() {
