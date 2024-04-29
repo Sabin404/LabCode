@@ -1,0 +1,29 @@
+//Program
+#include <stdio.h>
+#include <graphics.h>
+void drawCircle(int xc, int yc, int r) {
+ int x = 0, y = r;
+ int p = 1 - r; // Initial decision parameter
+ while (x <= y) {
+ putpixel(xc + x, yc + y, WHITE);
+ putpixel(xc - x, yc + y, WHITE);
+ putpixel(xc + x, yc - y, WHITE);
+ putpixel(xc - x, yc - y, WHITE);
+ putpixel(xc + y, yc + x, WHITE);
+ putpixel(xc - y, yc + x, WHITE);
+ putpixel(xc + y, yc - x, WHITE);
+ putpixel(xc - y, yc - x, WHITE);
+ if (p < 0)
+ p += 2 * x + 3;
+ else {
+ p += 2 * (x - y) + 5;
+ y--; }
+ x++;}}
+int main() {
+ int gd = DETECT, gm;
+ initgraph(&gd, &gm, "");
+ int xc = 250, yc = 250, radius = 100;
+ drawCircle(xc, yc, radius);
+ delay(5000); // Delay to display the circle
+ closegraph();
+ return 0;}
