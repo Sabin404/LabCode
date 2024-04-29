@@ -1,0 +1,42 @@
+//Program
+#include <stdio.h>
+#include <graphics.h>
+void drawEllipse(int xc, int yc, int a, int b) {
+ int gm;
+ detectgraph(&gm);
+ initgraph(&gm, &gm, "");
+ int x = 0, y = b;
+ float p = b * b - a * a * b + 0.25 * a * a;
+ while (2 * b * b * x <= 2 * a * a * y) {
+ putpixel(xc + x, yc + y, WHITE);
+ putpixel(xc - x, yc + y, WHITE);
+ putpixel(xc + x, yc - y, WHITE);
+ putpixel(xc - x, yc - y, WHITE);
+ if (p < 0) {
+ x++;
+ p += 2 * b * b * x + b * b;
+ } else {
+ x++;
+ y--;
+ p += 2 * b * b * x - 2 * a * a * y + b * b; }}
+ p = b * b * (x + 0.5) * (x + 0.5) + a * a * (y - 1) * (y - 1) - a * a * b * b;
+ while (y >= 0) {
+ putpixel(xc + x, yc + y, WHITE);
+ putpixel(xc - x, yc + y, WHITE);
+ putpixel(xc + x, yc - y, WHITE);
+ putpixel(xc - x, yc - y, WHITE);
+ if (p > 0) {
+ y--;
+ p -= 2 * a * a * y + a * a;
+ } else {
+ y--;
+ x++;
+ p += 2 * b * b * x - 2 * a * a * y + a * a; } }}
+int main() {
+ int xc = 320, yc = 240; // Center coordinates
+ int a = 150, b = 100; // Semi-major and semi-minor axes lengths
+ drawEllipse(xc, yc, a, b);
+ getch();
+ closegraph();
+ return 0;
+}
