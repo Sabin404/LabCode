@@ -1,1 +1,111 @@
+//LINEAR CONGRUENTIAL GENERATOR FUNCTION
+#include <stdio.h> 
+
+void linear(int seed, int a, int incrementer, int modulus) {
+    int randomNumber;
+
+    for(int i = 0; i < 5; i++) {
+        randomNumber = (seed * a + incrementer) % modulus;
+        printf("%d. Random No:- %d\n", i + 1, randomNumber);
+        seed = randomNumber;
+    }
+}
+
+int main() {
+    int seed, a, incrementer, modulus;
+
+    printf("Enter seed:\n");
+    scanf("%d", &seed);
+
+    printf("Enter the value of A:\n");
+    scanf("%d", &a);
+
+    printf("Enter the incrementer:\n");
+    scanf("%d", &incrementer);
+
+    printf("Enter the value of modulus:\n");
+    scanf("%d", &modulus);
+
+    // Call the linear congruential generator
+    linear(seed, a, incrementer, modulus);
+
+    return 0;
+}
+
+
+
+
+//MULTIPLICATIVE CONGREUNTIAL GENERATOR
+
+#include <stdio.h>
+
+void multiplicative(int seed, int a, int modulus) {
+    int randomNumber;
+
+    for (int i = 0; i < 5; i++) {
+        randomNumber = (seed * a) % modulus;
+        printf("%d. Random No:- %d\n", i + 1, randomNumber);
+        seed = randomNumber;
+    }
+}
+
+int main() {
+    int seed, a, modulus;
+
+    printf("Enter seed:\n");
+    scanf("%d", &seed);
+
+    printf("Enter the value of A:\n");
+    scanf("%d", &a);
+
+    printf("Enter the value of modulus:\n");
+    scanf("%d", &modulus);
+
+    multiplicative(seed, a, modulus);
+
+    return 0;
+}
+
+
+
+
+
+//MIZED CONGRUENTAL GENERATOR
+#include <stdio.h>
+
+void mixed(int seed, int a, int incrementer, int modulus) {
+    int randomNumber;
+
+    for (int i = 0; i < 5; i++) {
+        randomNumber = (seed * a + incrementer) % modulus;
+        printf("%d. Random No:- %d\n", i + 1, randomNumber);
+        seed = randomNumber;
+    }
+}
+
+int main() {
+    int seed, a, incrementer, modulus;
+
+    printf("Enter seed:\n");
+    scanf("%d", &seed);
+
+    printf("Enter the value of multiplier:\n");
+    scanf("%d", &a);
+
+inc:
+    printf("Enter the incrementer (must not be 0):\n");
+    scanf("%d", &incrementer);
+
+    if (incrementer == 0) {
+        printf("Please enter a value other than 0!\n\n");
+        goto inc;
+    }
+
+    printf("Enter the value of modulus:\n");
+    scanf("%d", &modulus);
+
+    mixed(seed, a, incrementer, modulus);
+
+    return 0;
+}
 
